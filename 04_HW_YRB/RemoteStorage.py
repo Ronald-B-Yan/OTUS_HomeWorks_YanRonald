@@ -2,10 +2,12 @@
 Module:
 Классы для работы с медиа-файлами в удалённом хранилище.
 """
+from abc import ABC, abstractmethod
 
-class RemoteStorage:
+class RemoteStorage(ABC):
     """Базовый класс для работы с удалёнными хранилищами (S3, облако и т.д.)."""
 
+    @abstractmethod
     def __init__(self, connection_params: dict):
         """Инициализация объекта с параметрами подключения.
         Аргументы:
@@ -13,6 +15,7 @@ class RemoteStorage:
         """
         self.connection_params = connection_params
 
+    @abstractmethod    
     def upload(self, local_path: str, remote_path: str):
         """Загрузка файла в удалённое хранилище.
          Аргументы:
@@ -21,6 +24,7 @@ class RemoteStorage:
         """
         pass
 
+    @abstractmethod    
     def download(self, remote_path: str, local_path: str):
         """Скачивание файла из удалённого хранилища.
          Аргументы:
@@ -29,6 +33,7 @@ class RemoteStorage:
         """
         pass
 
+    @abstractmethod    
     def delete(self, remote_path: str):
         """Удаление файла из удалённого хранилища.
         Аргументы:
@@ -36,6 +41,7 @@ class RemoteStorage:
         """
         pass
 
+    @abstractmethod    
     def list_files(self, path: str) -> list:
         """Список файлов в заданном каталоге.
         Аргументы:
@@ -44,3 +50,5 @@ class RemoteStorage:
             list: Список файлов в указанном каталоге.
         """
         pass
+
+

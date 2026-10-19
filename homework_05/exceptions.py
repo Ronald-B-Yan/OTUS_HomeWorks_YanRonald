@@ -1,5 +1,5 @@
 """
-Модуль пользовательских исключений для транспортных средств.
+Модуль исключений для транспортных средств.
 """
 
 class LowFuelError(Exception):
@@ -34,3 +34,13 @@ class CargoOverload(Exception):
     def __init__(self, message="Превышена максимальная грузоподъемность"):
         self.message = message
         super().__init__(self.message)
+
+class EngineNotStarted(Exception):
+    """Исключение, возникающее двигатель не запущен.
+    
+    Аргументы:
+        message (str): Сообщение об ошибке. По умолчанию "Двигатель не работает".
+    """
+    def __init__(self, message="Двигатель не работает"):
+        self.message = message
+        super().__init__(self.message)        

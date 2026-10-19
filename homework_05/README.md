@@ -29,11 +29,13 @@ homework_05
 LowFuelError
 NotEnoughFuel
 CargoOverload
+
 Доработайте базовый класс base.Vehicle:
 добавьте атрибуты weight, started, fuel, fuel_consumption со значениями по умолчанию
 добавьте инициализатор для установки weight, fuel, fuel_consumption
 добавьте метод start. При вызове этого метода необходимо проверить состояние started. И если не started, то нужно проверить, что топлива больше нуля, и обновить состояние started, иначе нужно выкинуть исключение exceptions.LowFuelError
 добавьте метод move, который проверяет, что топлива достаточно для преодоления переданной дистанции (вплоть до полного расхода), и изменяет количество оставшегося топлива, иначе выкидывает исключение exceptions.NotEnoughFuel
+
 Создайте датакласс Engine в модуле engine, добавьте атрибуты volume и pistons
 Пример простейшего датакласса:
 from dataclasses import dataclass
@@ -43,6 +45,7 @@ class Person:
     name: str
     age: int
     city: str = "Неизвестно"  # значение по умолчанию
+
 В модуле car создайте класс Car
 класс Car должен быть наследником Vehicle
 добавьте атрибут engine классу Car
